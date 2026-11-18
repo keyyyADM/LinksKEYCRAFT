@@ -163,4 +163,570 @@
       transform: scale(1.08);
     }
 
-    .btn
+    .btn:hover .arrow {
+      color: var(--green);
+      transform: translateX(3px);
+    }
+
+    /* Botão Destaque LivePix Minimalista */
+    .btn-highlight {
+      background: linear-gradient(135deg, rgba(0, 255, 102, 0.16), rgba(0, 136, 51, 0.12));
+      border-color: rgba(0, 255, 102, 0.35);
+    }
+
+    .btn-highlight:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 102, 0.24), rgba(0, 136, 51, 0.18));
+      border-color: var(--green);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* Busca & Filtros Minimalistas */
+    .controls {
+      margin-bottom: 16px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      margin-bottom: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-box input::placeholder {
+      color: var(--muted);
+    }
+
+    .search-box input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 2px rgba(0, 255, 102, 0.15);
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .pill.active {
+      background: var(--green-soft);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* Lista de Mods */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 2px;
+    }
+
+    .section-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .mod-count {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .mod-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mod-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 16px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .mod-card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateX(3px);
+    }
+
+    .mod-info h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .mod-card:hover .mod-info h3 {
+      color: var(--green);
+    }
+
+    .mod-info p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: var(--green-soft);
+      color: var(--green);
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+      padding: 28px 0;
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fundo Interativo estilo Minecraft -->
+  <canvas id="mcCanvas"></canvas>
+
+  <div class="container">
+    <header>
+      <div class="block-badge" title="Keycraft">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="32,8 56,21 32,34 8,21" fill="#33ff88" />
+          <polygon points="8,21 32,34 32,56 8,43" fill="#2d1e14" />
+          <polygon points="8,21 32,34 32,40 24,36 24,39 16,35 16,31 8,27" fill="#00cc55" />
+          <polygon points="56,21 32,34 32,56 56,43" fill="#1f140d" />
+          <polygon points="56,21 32,34 32,40 40,36 40,38 48,34 48,30 56,26" fill="#009940" />
+        </svg>
+      </div>
+      <h1>Key</h1>
+      <div class="handle">@Keyyycraft</div>
+      <p>Tudo sobre esses Blocos! Links diretos do Modrinth</p>
+    </header>
+
+    <div class="actions">
+      <a href="https://livepix.gg/keycraft" target="_blank" rel="noopener" class="btn btn-highlight">
+        <span class="btn-left">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          Apoiar o canal / Pedir um mod
+        </span>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a href="https://youtube.com/@Keyyycraft" target="_blank" rel="noopener" class="btn">
+        <span class="btn-left">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          YouTube
+        </span>
+        <span class="arrow">↗</span>
+      </a>
+
+      <div class="social-grid">
+        <a href="https://www.tiktok.com/@keyyycraft?lang=pt-BR" target="_blank" rel="noopener" class="btn">
+          <span class="btn-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+            TikTok
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a href="https://k.kwai.com/w/b6jU4jEP" target="_blank" rel="noopener" class="btn">
+          <span class="btn-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="4"/>
+              <polygon points="10 9 15 12 10 15 10 9"/>
+            </svg>
+            Kwai
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar mod..." />
+      </div>
+      <div class="filter-pills" id="filterPills">
+        <button class="pill active" data-filter="all">Todos</button>
+        <button class="pill" data-filter="otimização">Otimização</button>
+        <button class="pill" data-filter="construção">Construção</button>
+        <button class="pill" data-filter="visuais">Visuais</button>
+        <button class="pill" data-filter="utilidade">Utilidade</button>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title">Mods em Destaque</div>
+      <div class="mod-count" id="modCount">17 mods</div>
+    </div>
+
+    <div class="mod-list" id="modList">
+      <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Sodium</h3>
+          <p>Otimização extrema de FPS e renderização</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/sodium-extra" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Sodium Extra</h3>
+          <p>Opções extras de configuração gráfica para o Sodium</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Lithium</h3>
+          <p>Melhora física, chunks e desempenho geral</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/immediatelyfast" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>ImmediatelyFast</h3>
+          <p>Otimiza a renderização de entidades, blocos e UI</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/entityculling" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Entity Culling</h3>
+          <p>Não renderiza entidades escondidas atrás de paredes</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/ferritecore" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>FerriteCore</h3>
+          <p>Reduz drasticamente o consumo de memória RAM</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/axiom" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Axiom</h3>
+          <p>Ferramenta de edição e construção estilo editor profissional</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/effortless-building" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Effortless Building</h3>
+          <p>Construa estruturas gigantes e espelhadas em segundos</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/macaws-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Macaw's Furniture</h3>
+          <p>Cadeiras, mesas, prateleiras e decorações detalhadas</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/a-little-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>A Little Furniture</h3>
+          <p>Mais opções de móveis aconchegantes para suas bases</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
+        <div class="mod-info">
+          <h3>Iris Shaders</h3>
+          <p>Suporte a shaders de altíssimo desempenho integrado ao Sodium</p>
+        </div>
+        <span class="tag">Visuais</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/fresh-animations" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
+        <div class="mod-info">
+          <h3>Fresh Animations</h3>
+          <p>Dá vida aos mobs com expressões faciais e movimentos fluidos</p>
+        </div>
+        <span class="tag">Visuais</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/emotecraft" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
+        <div class="mod-info">
+          <h3>Emotecraft</h3>
+          <p>Expresse-se no multiplayer com emotes e animações personalizadas</p>
+        </div>
+        <span class="tag">Visuais</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Xaero's Minimap</h3>
+          <p>Minimapa limpo e customizável com waypoints e radar</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/flashback" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Flashback</h3>
+          <p>Grave e reproduza suas melhores sessões de construção</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/zoomify" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Zoomify</h3>
+          <p>Zoom óptico suave configurável no jogo</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/modmenu" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Mod Menu</h3>
+          <p>Interface gráfica limpa para gerenciar e configurar seus mods</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+    </div>
+
+    <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado.</div>
+
+    <footer>
+      Keycraft • Modrinth Links
+    </footer>
+  </div>
+
+  <script>
+    // --- 1. Filtro e Busca de Mods ---
+    const searchInput = document.getElementById("searchInput");
+    const modCards = document.querySelectorAll(".mod-card");
+    const emptyMsg = document.getElementById("emptyMsg");
+    const modCount = document.getElementById("modCount");
+    const pills = document.querySelectorAll(".pill");
+    let currentFilter = "all";
+
+    function filterMods() {
+      const term = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      modCards.forEach((card) => {
+        const text = card.innerText.toLowerCase();
+        const category = card.getAttribute("data-category");
+        const matchesSearch = text.includes(term);
+        const matchesCategory = currentFilter === "all" || category === currentFilter;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "flex";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      emptyMsg.style.display = visibleCount === 0 ? "block" : "none";
+      modCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'mod' : 'mods'}`;
+    }
+
+    searchInput.addEventListener("input", filterMods);
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentFilter = pill.getAttribute("data-filter");
+        filterMods();
+      });
+    });
+
+    // --- 2. Fundo Interativo Minecraft (Pixels/Vagalumes + Terreno Parallax) ---
+    const canvas = document.getElementById("mcCanvas");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let mouse = { x: -1000, y: -1000, targetX: 0, targetY: 0 };
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.targetX = (e.clientX / width - 0.5) * 30;
+      mouse.targetY = (e.clientY / height - 0.5) * 15;
+    });
+
+    window.addEventListener("mouseleave", () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    // Partículas quadradas estilo partículas de XP / Esporos / Vagalumes do Minecraft
+    const particles = Array.from({ length: 42 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      size: Math.floor(Math.random() * 4) + 3,
+      speedY: -(Math.random() * 0.35 + 0.1),
+      speedX: (Math.random() - 0.5) * 0.25,
+      alpha: Math.random() * 0.5 + 0.15,
+      pulse: Math.random() * Math.PI * 2
+    }));
+
+    // Blocos do terreno minimalista na base
+    const terrainBlocks = [];
+    const blockSize = 36;
+    function buildTerrain() {
+      terrainBlocks.length = 0;
+      const cols = Math.ceil(width / blockSize) + 4;
+      for (let i = -2; i < cols; i++) {
+        const h1 = Math.floor(Math.sin(i * 0.35) * 2 + 3);
+        const h2 = Math.floor(Math.cos(i * 0.25) * 1.5 + 2);
+        terrainBlocks.push({ col: i, h1, h2 });
+      }
+    }
+    buildTerrain();
+    window.addEventListener("resize", buildTerrain);
+
+    let smoothX = 0, smoothY = 0;
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Gradiente atmosférico noturno
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, "#020603");
+      grad.addColorStop(0.6, "#051209");
+      grad.addColorStop(1, "#091f10");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      smoothX += (mouse.targetX - smoothX) * 0.05;
+      smoothY += (mouse.targetY - smoothY) * 0.05;
+
+      // Camada de fundo: silhueta de blocos distantes (Parallax lento)
+      terrainBlocks.forEach(b => {
+        const x = b.col * blockSize + smoothX * 0.4;
+        const y = height - b.h1 * blockSize + smoothY * 0.3;
+        ctx.fillStyle = "rgba(0, 255, 102, 0.03)";
+        ctx.fillRect(x, y, blockSize - 1, b.h1 * blockSize + 40);
+      });
+
+      // Camada frontal: blocos de grama minimalistas na base
+      terrainBlocks.forEach(b => {
+        const x = b.col * blockSize + smoothX;
+        const y = height - b.h2 * blockSize + smoothY * 0.6;
+        ctx.fillStyle = "rgba(10, 32, 16, 0.65)";
+        ctx.fillRect(x, y, blockSize - 1, b.h2 * blockSize + 40);
+        // Topo verde sutil (grama)
+        ctx.fillStyle = "rgba(0, 255, 102, 0.14)";
+        ctx.fillRect(x, y, blockSize - 1, 4);
+      });
+
+      // Partículas quadradas interativas
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.pulse += 0.03;
+
+        if (p.y < -10) {
+          p.y = height + 10;
+          p.x = Math.random() * width;
+        }
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+
+        // Repulsão suave ao passar o mouse
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 110) {
+          const force = (110 - dist) / 110;
+          p.x += (dx / dist) * force * 2.2;
+          p.y += (dy / dist) * force * 2.2;
+        }
+
+        const currentAlpha = p.alpha + Math.sin(p.pulse) * 0.12;
+        ctx.fillStyle = `rgba(0, 255, 102, ${Math.max(0.05, currentAlpha)})`;
+        ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
