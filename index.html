@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mods & Links</title>
+  <title>Keycraft - Mods & Links</title>
   <style>
     :root {
-      --bg: #0f1115;
-      --card: #181b21;
-      --card-hover: #20242c;
-      --border: #2a2f3a;
+      --bg: #0b0d10;
+      --card: #13161c;
+      --card-hover: #1b1f28;
+      --border: #222732;
       --text: #f3f4f6;
       --muted: #9ca3af;
-      --accent: #1bd96a; /* Verde estilo Modrinth */
-      --pix: #8b5cf6;    /* Roxo destaque LivePix */
+      --accent: #22c55e;
+      --pix: #a855f7;
     }
 
     * {
@@ -28,7 +28,7 @@
       color: var(--text);
       display: flex;
       justify-content: center;
-      padding: 24px 16px 48px;
+      padding: 32px 16px 48px;
       min-height: 100vh;
     }
 
@@ -39,13 +39,27 @@
 
     header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--pix));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.2);
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 6px;
+      letter-spacing: -0.02em;
     }
 
     header p {
@@ -53,11 +67,10 @@
       font-size: 0.92rem;
     }
 
-    /* Botões Principais */
     .actions {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 24px;
     }
 
@@ -65,23 +78,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
-      padding: 14px 16px;
-      border-radius: 10px;
+      padding: 15px 18px;
+      border-radius: 12px;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: transform 0.15s ease, opacity 0.15s ease;
+      font-size: 0.96rem;
+      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      opacity: 0.92;
+      transform: translateY(-2px);
+      opacity: 0.95;
     }
 
     .btn-pix {
       background-color: var(--pix);
       color: #fff;
+      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
     }
 
     .btn-video {
@@ -90,35 +104,39 @@
       border: 1px solid var(--border);
     }
 
-    /* Barra de Pesquisa */
+    .btn-video:hover {
+      border-color: var(--accent);
+    }
+
     .search-box {
       position: relative;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 13px 16px;
-      border-radius: 10px;
+      padding: 14px 18px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       background-color: var(--card);
       color: var(--text);
       font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .search-box input:focus {
       border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
     }
 
-    /* Lista de Mods */
     .section-title {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .mod-list {
@@ -133,35 +151,36 @@
       align-items: center;
       background-color: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
+      border-radius: 12px;
+      padding: 15px 18px;
       text-decoration: none;
       color: var(--text);
-      transition: background-color 0.15s, border-color 0.15s;
+      transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
     }
 
     .mod-card:hover {
       background-color: var(--card-hover);
       border-color: var(--accent);
+      transform: translateX(3px);
     }
 
     .mod-info h3 {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
       margin-bottom: 3px;
     }
 
     .mod-info p {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
     .tag {
       font-size: 0.72rem;
       font-weight: 600;
-      padding: 4px 8px;
+      padding: 5px 9px;
       border-radius: 6px;
-      background-color: rgba(27, 217, 106, 0.12);
+      background-color: rgba(34, 197, 94, 0.12);
       color: var(--accent);
       white-space: nowrap;
       margin-left: 12px;
@@ -177,7 +196,7 @@
 
     footer {
       text-align: center;
-      margin-top: 32px;
+      margin-top: 36px;
       font-size: 0.78rem;
       color: var(--muted);
     }
@@ -186,36 +205,34 @@
 <body>
   <div class="container">
     <header>
-      <!-- EDITE SEU NOME / CANAL AQUI -->
-      <h1>Seu Canal de Mods</h1>
-      <p>Links diretos e seguros do Modrinth mostrados nos vídeos</p>
+      <div class="avatar">⛏️</div>
+      <h1>Keycraft</h1>
+      <p>Links diretos e seguros do Modrinth dos vídeos</p>
     </header>
 
     <div class="actions">
-      <!-- COLE SEU LINK DO LIVEPIX ABAIXO -->
-      <a href="https://livepix.gg/SEU_USUARIO" target="_blank" rel="noopener" class="btn-primary btn-pix">
+      <!-- LivePix configurado -->
+      <a href="https://livepix.gg/keycraft" target="_blank" rel="noopener" class="btn-primary btn-pix">
         💜 Apoiar o canal / Pedir um mod (LivePix)
       </a>
 
-      <!-- COLE O LINK DO SEU ÚLTIMO VÍDEO LONGO NO YOUTUBE ABAIXO -->
-      <a href="https://youtube.com/@SEU_CANAL" target="_blank" rel="noopener" class="btn-primary btn-video">
-        ▶️ Vídeo Completo: Como Otimizar o Minecraft
+      <!-- Canal do YouTube configurado -->
+      <a href="https://youtube.com/@Keyyycraft" target="_blank" rel="noopener" class="btn-primary btn-video">
+        ▶️ Canal no YouTube & Vídeos Completos
       </a>
     </div>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar mod pelo nome ou função (ex: FPS, Shader, Minimap)..." />
+      <input type="text" id="searchInput" placeholder="Pesquisar mod por nome ou função..." />
     </div>
 
-    <div class="section-title">Lista de Mods (Modrinth)</div>
+    <div class="section-title">Lista de Mods em Destaque</div>
 
     <div class="mod-list" id="modList">
-      <!-- PARA ADICIONAR NOVOS MODS, COPIE E COLE UM BLOCO <a class="mod-card">...</a> ABAIXO -->
-
       <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card">
         <div class="mod-info">
           <h3>Sodium</h3>
-          <p>Aumenta drasticamente o FPS e otimiza a renderização</p>
+          <p>Otimização extrema de FPS e renderização</p>
         </div>
         <span class="tag">Otimização</span>
       </a>
@@ -223,7 +240,7 @@
       <a href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener" class="mod-card">
         <div class="mod-info">
           <h3>Lithium</h3>
-          <p>Otimiza a física, IA dos mobs e carregamento de chunks</p>
+          <p>Melhora física, chunks e desempenho geral</p>
         </div>
         <span class="tag">Otimização</span>
       </a>
@@ -231,40 +248,24 @@
       <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card">
         <div class="mod-info">
           <h3>Iris Shaders</h3>
-          <p>Permite usar shaders leves e pesados junto com o Sodium</p>
+          <p>Suporte a shaders leves junto com o Sodium</p>
         </div>
         <span class="tag">Gráficos</span>
-      </a>
-
-      <a href="https://modrinth.com/mod/entityculling" target="_blank" rel="noopener" class="mod-card">
-        <div class="mod-info">
-          <h3>Entity Culling</h3>
-          <p>Não renderiza entidades escondidas atrás de paredes (mais FPS)</p>
-        </div>
-        <span class="tag">Otimização</span>
       </a>
 
       <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card">
         <div class="mod-info">
           <h3>Xaero's Minimap</h3>
-          <p>Minimapa leve e limpo para exploração e waypoints</p>
+          <p>Minimapa limpo com marcações e waypoints</p>
         </div>
         <span class="tag">Utilidade</span>
-      </a>
-
-      <a href="https://modrinth.com/mod/not-enough-animations" target="_blank" rel="noopener" class="mod-card">
-        <div class="mod-info">
-          <h3>Not Enough Animations</h3>
-          <p>Adiciona animações realistas em terceira pessoa</p>
-        </div>
-        <span class="tag">Visual</span>
       </a>
     </div>
 
     <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado com esse termo.</div>
 
     <footer>
-      Todos os links levam diretamente para as páginas oficiais no Modrinth.
+      Keycraft • Links oficiais do Modrinth
     </footer>
   </div>
 
