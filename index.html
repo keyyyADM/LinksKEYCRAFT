@@ -322,21 +322,31 @@
       <div class="filter-pills" id="filterPills">
         <button class="pill active" data-filter="all">Todos</button>
         <button class="pill" data-filter="otimização">Otimização</button>
-        <button class="pill" data-filter="gráficos">Gráficos</button>
+        <button class="pill" data-filter="construção">Construção</button>
+        <button class="pill" data-filter="visuais">Visuais</button>
         <button class="pill" data-filter="utilidade">Utilidade</button>
       </div>
     </div>
 
     <div class="section-header">
       <div class="section-title">Lista de Mods em Destaque</div>
-      <div class="mod-count" id="modCount">4 mods</div>
+      <div class="mod-count" id="modCount">16 mods</div>
     </div>
 
     <div class="mod-list" id="modList">
+      <!-- OTIMIZAÇÃO -->
       <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
         <div class="mod-info">
           <h3>Sodium</h3>
           <p>Otimização extrema de FPS e renderização</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/sodium-extra" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Sodium Extra</h3>
+          <p>Opções extras de configuração gráfica para o Sodium</p>
         </div>
         <span class="tag">Otimização</span>
       </a>
@@ -349,72 +359,86 @@
         <span class="tag">Otimização</span>
       </a>
 
-      <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card" data-category="gráficos">
+      <a href="https://modrinth.com/mod/immediatelyfast" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>ImmediatelyFast</h3>
+          <p>Otimiza a renderização de entidades, blocos e UI</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/entityculling" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>Entity Culling</h3>
+          <p>Não renderiza entidades escondidas atrás de paredes</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/ferritecore" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
+        <div class="mod-info">
+          <h3>FerriteCore</h3>
+          <p>Reduz drasticamente o consumo de memória RAM</p>
+        </div>
+        <span class="tag">Otimização</span>
+      </a>
+
+      <!-- CONSTRUÇÃO & DECORAÇÃO -->
+      <a href="https://modrinth.com/mod/axiom" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Axiom</h3>
+          <p>Ferramenta de edição e construção estilo editor profissional</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/effortless-building" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Effortless Building</h3>
+          <p>Construa estruturas gigantes e espelhadas em segundos</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/macaws-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>Macaw's Furniture</h3>
+          <p>Cadeiras, mesas, prateleiras e decorações detalhadas</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/a-little-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
+        <div class="mod-info">
+          <h3>A Little Furniture</h3>
+          <p>Mais opções de móveis aconchegantes para suas bases</p>
+        </div>
+        <span class="tag">Construção</span>
+      </a>
+
+      <!-- VISUAIS & ANIMAÇÕES -->
+      <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
         <div class="mod-info">
           <h3>Iris Shaders</h3>
-          <p>Suporte a shaders leves junto com o Sodium</p>
+          <p>Suporte a shaders de altíssimo desempenho integrado ao Sodium</p>
         </div>
-        <span class="tag">Gráficos</span>
+        <span class="tag">Visuais</span>
       </a>
 
-      <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+      <a href="https://modrinth.com/mod/fresh-animations" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
         <div class="mod-info">
-          <h3>Xaero's Minimap</h3>
-          <p>Minimapa limpo com marcações e waypoints</p>
+          <h3>Fresh Animations</h3>
+          <p>Dá vida aos mobs com expressões faciais e movimentos fluidos</p>
         </div>
-        <span class="tag">Utilidade</span>
+        <span class="tag">Visuais</span>
       </a>
-    </div>
 
-    <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado com esses critérios.</div>
+      <a href="https://modrinth.com/mod/emotecraft" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
+        <div class="mod-info">
+          <h3>Emotecraft</h3>
+          <p>Expresse-se no multiplayer com emotes e animações personalizadas</p>
+        </div>
+        <span class="tag">Visuais</span>
+      </a>
 
-    <footer>
-      Keycraft • Links oficiais do Modrinth
-    </footer>
-  </div>
-
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const modCards = document.querySelectorAll(".mod-card");
-    const emptyMsg = document.getElementById("emptyMsg");
-    const modCount = document.getElementById("modCount");
-    const pills = document.querySelectorAll(".pill");
-
-    let currentFilter = "all";
-
-    function filterMods() {
-      const term = searchInput.value.toLowerCase().trim();
-      let visibleCount = 0;
-
-      modCards.forEach((card) => {
-        const text = card.innerText.toLowerCase();
-        const category = card.getAttribute("data-category");
-        
-        const matchesSearch = text.includes(term);
-        const matchesCategory = currentFilter === "all" || category === currentFilter;
-
-        if (matchesSearch && matchesCategory) {
-          card.style.display = "flex";
-          visibleCount++;
-        } else {
-          card.style.display = "none";
-        }
-      });
-
-      emptyMsg.style.display = visibleCount === 0 ? "block" : "none";
-      modCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'mod' : 'mods'}`;
-    }
-
-    searchInput.addEventListener("input", filterMods);
-
-    pills.forEach(pill => {
-      pill.addEventListener("click", () => {
-        pills.forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
-        currentFilter = pill.getAttribute("data-filter");
-        filterMods();
-      });
-    });
-  </script>
-</body>
-</html>
+      <!-- UTILIDADES & QUALIDADE DE VIDA
