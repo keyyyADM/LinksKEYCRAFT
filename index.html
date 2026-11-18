@@ -42,17 +42,22 @@
       margin-bottom: 28px;
     }
 
-    .avatar {
-      width: 80px;
-      height: 80px;
+    .avatar-container {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 14px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--pix));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      margin: 0 auto 14px;
-      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.2);
+      padding: 3px; /* Borda brilhante estilo gradiente */
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #181b21;
     }
 
     header h1 {
@@ -205,18 +210,19 @@
 <body>
   <div class="container">
     <header>
-      <div class="avatar">⛏️</div>
+      <div class="avatar-container">
+        <!-- Puxa a renderização da cabeça da sua skin do Minecraft automaticamente -->
+        <img class="avatar" src="https://visage.surgeplay.com/face/180/Keyyycraft" alt="Skin do Keycraft" onerror="this.src='https://visage.surgeplay.com/face/180/steve'" />
+      </div>
       <h1>Keycraft</h1>
       <p>Links diretos e seguros do Modrinth dos vídeos</p>
     </header>
 
     <div class="actions">
-      <!-- LivePix configurado -->
       <a href="https://livepix.gg/keycraft" target="_blank" rel="noopener" class="btn-primary btn-pix">
         💜 Apoiar o canal / Pedir um mod (LivePix)
       </a>
 
-      <!-- Canal do YouTube configurado -->
       <a href="https://youtube.com/@Keyyycraft" target="_blank" rel="noopener" class="btn-primary btn-video">
         ▶️ Canal no YouTube & Vídeos Completos
       </a>
