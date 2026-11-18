@@ -441,4 +441,89 @@
         <span class="tag">Visuais</span>
       </a>
 
-      <!-- UTILIDADES & QUALIDADE DE VIDA
+      <!-- UTILIDADES & QUALIDADE DE VIDA -->
+      <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Xaero's Minimap</h3>
+          <p>Minimapa limpo e customizável com waypoints e radar</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/flashback" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Flashback</h3>
+          <p>Grave e reproduza suas melhores sessões de construção</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/zoomify" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Zoomify</h3>
+          <p>Zoom óptico suave configurável no jogo</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+
+      <a href="https://modrinth.com/mod/modmenu" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
+        <div class="mod-info">
+          <h3>Mod Menu</h3>
+          <p>Interface gráfica limpa para gerenciar e configurar seus mods</p>
+        </div>
+        <span class="tag">Utilidade</span>
+      </a>
+    </div>
+
+    <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado com esses critérios.</div>
+
+    <footer>
+      Keycraft • Links oficiais do Modrinth
+    </footer>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const modCards = document.querySelectorAll(".mod-card");
+    const emptyMsg = document.getElementById("emptyMsg");
+    const modCount = document.getElementById("modCount");
+    const pills = document.querySelectorAll(".pill");
+
+    let currentFilter = "all";
+
+    function filterMods() {
+      const term = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      modCards.forEach((card) => {
+        const text = card.innerText.toLowerCase();
+        const category = card.getAttribute("data-category");
+        
+        const matchesSearch = text.includes(term);
+        const matchesCategory = currentFilter === "all" || category === currentFilter;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "flex";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      emptyMsg.style.display = visibleCount === 0 ? "block" : "none";
+      modCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'mod' : 'mods'}`;
+    }
+
+    searchInput.addEventListener("input", filterMods);
+
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentFilter = pill.getAttribute("data-filter");
+        filterMods();
+      });
+    });
+  </script>
+</body>
+</html>
