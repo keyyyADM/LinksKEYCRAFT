@@ -6,18 +6,22 @@
   <title>Keycraft • Mods & Links</title>
   <style>
     :root {
-      --bg: #070907;
-      --card: #101410;
-      --card-hover: #161d16;
-      --border: #1e291e;
+      --bg: #030703;
+      --card: #0a120a;
+      --card-hover: #101c10;
+      --border: #162e16;
       --text: #f3f4f6;
       --muted: #9ca3af;
-      --green: #16d916;       /* Verde vibrante da sua skin */
-      --green-dark: #0fa30f;
-      --green-glow: rgba(22, 217, 22, 0.25);
+      
+      /* Cores Verdes Dinâmicas e Vibrantes */
+      --green: #00ff66;
+      --green-light: #33ff88;
+      --green-dark: #008833;
+      --green-glow: rgba(0, 255, 102, 0.35);
+      --green-glow-strong: rgba(0, 255, 102, 0.6);
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -26,7 +30,9 @@
 
     body {
       background-color: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, rgba(22, 217, 22, 0.12) 0%, transparent 55%);
+      background-image: 
+        radial-gradient(circle at 50% -20%, rgba(0, 255, 102, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 80% 90%, rgba(0, 136, 51, 0.1) 0%, transparent 50%);
       color: var(--text);
       display: flex;
       justify-content: center;
@@ -49,9 +55,15 @@
       height: 96px;
       margin: 0 auto 14px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), #064e06);
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
       padding: 3px;
-      box-shadow: 0 0 28px var(--green-glow);
+      box-shadow: 0 0 32px var(--green-glow);
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(0, 255, 102, 0.2); }
+      100% { box-shadow: 0 0 38px var(--green-glow-strong); }
     }
 
     .avatar {
@@ -59,21 +71,25 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #111611;
+      background-color: #0d140d;
     }
 
     header h1 {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 4px;
       letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #fff, var(--green-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header .handle {
       color: var(--green);
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 6px;
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
     }
 
     header p {
@@ -98,7 +114,7 @@
       border-radius: 12px;
       font-weight: 700;
       font-size: 0.96rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
 
     .btn-primary:hover {
@@ -106,14 +122,15 @@
     }
 
     .btn-pix {
-      background-color: var(--green);
-      color: #041204;
-      box-shadow: 0 4px 20px var(--green-glow);
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #030a03;
+      box-shadow: 0 4px 24px var(--green-glow);
+      font-weight: 800;
     }
 
     .btn-pix:hover {
-      background-color: #1ef01e;
-      box-shadow: 0 6px 24px rgba(22, 217, 22, 0.4);
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      box-shadow: 0 6px 30px var(--green-glow-strong);
     }
 
     .btn-video {
@@ -125,11 +142,16 @@
     .btn-video:hover {
       border-color: var(--green);
       background-color: var(--card-hover);
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+    }
+
+    .search-filter-wrapper {
+      margin-bottom: 16px;
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .search-box input {
@@ -146,7 +168,47 @@
 
     .search-box input:focus {
       border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(22, 217, 22, 0.15);
+      box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.25);
+    }
+
+    /* Filtros rápidos */
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .filter-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover, .pill.active {
+      background-color: rgba(0, 255, 102, 0.15);
+      border-color: var(--green);
+      color: var(--green);
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
     }
 
     .section-title {
@@ -154,8 +216,12 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted);
-      margin-bottom: 12px;
       font-weight: 600;
+    }
+
+    .mod-count {
+      font-size: 0.75rem;
+      color: var(--muted);
     }
 
     .mod-list {
@@ -174,19 +240,25 @@
       padding: 15px 18px;
       text-decoration: none;
       color: var(--text);
-      transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
     .mod-card:hover {
       background-color: var(--card-hover);
       border-color: var(--green);
-      transform: translateX(3px);
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(0, 255, 102, 0.15);
     }
 
     .mod-info h3 {
       font-size: 0.98rem;
       font-weight: 600;
       margin-bottom: 3px;
+      transition: color 0.2s;
+    }
+
+    .mod-card:hover .mod-info h3 {
+      color: var(--green-light);
     }
 
     .mod-info p {
@@ -199,10 +271,11 @@
       font-weight: 700;
       padding: 5px 9px;
       border-radius: 6px;
-      background-color: rgba(22, 217, 22, 0.12);
+      background-color: rgba(0, 255, 102, 0.15);
       color: var(--green);
       white-space: nowrap;
       margin-left: 12px;
+      border: 1px solid rgba(0, 255, 102, 0.2);
     }
 
     .empty-msg {
@@ -225,7 +298,6 @@
   <div class="container">
     <header>
       <div class="avatar-container">
-        <!-- Usa o arquivo avatar.png que você subir no GitHub; se não existir, puxa sua skin -->
         <img class="avatar" src="./avatar.png" alt="Keycraft" onerror="this.onerror=null; this.src='https://visage.surgeplay.com/bust/256/Keyyycraft';" />
       </div>
       <h1>Key</h1>
@@ -243,14 +315,25 @@
       </a>
     </div>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar mod por nome ou função..." />
+    <div class="search-filter-wrapper">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Pesquisar mod por nome ou função..." />
+      </div>
+      <div class="filter-pills" id="filterPills">
+        <button class="pill active" data-filter="all">Todos</button>
+        <button class="pill" data-filter="otimização">Otimização</button>
+        <button class="pill" data-filter="gráficos">Gráficos</button>
+        <button class="pill" data-filter="utilidade">Utilidade</button>
+      </div>
     </div>
 
-    <div class="section-title">Lista de Mods em Destaque</div>
+    <div class="section-header">
+      <div class="section-title">Lista de Mods em Destaque</div>
+      <div class="mod-count" id="modCount">4 mods</div>
+    </div>
 
     <div class="mod-list" id="modList">
-      <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card">
+      <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
         <div class="mod-info">
           <h3>Sodium</h3>
           <p>Otimização extrema de FPS e renderização</p>
@@ -258,7 +341,7 @@
         <span class="tag">Otimização</span>
       </a>
 
-      <a href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener" class="mod-card">
+      <a href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
         <div class="mod-info">
           <h3>Lithium</h3>
           <p>Melhora física, chunks e desempenho geral</p>
@@ -266,7 +349,7 @@
         <span class="tag">Otimização</span>
       </a>
 
-      <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card">
+      <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card" data-category="gráficos">
         <div class="mod-info">
           <h3>Iris Shaders</h3>
           <p>Suporte a shaders leves junto com o Sodium</p>
@@ -274,7 +357,7 @@
         <span class="tag">Gráficos</span>
       </a>
 
-      <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card">
+      <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
         <div class="mod-info">
           <h3>Xaero's Minimap</h3>
           <p>Minimapa limpo com marcações e waypoints</p>
@@ -283,7 +366,7 @@
       </a>
     </div>
 
-    <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado com esse termo.</div>
+    <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado com esses critérios.</div>
 
     <footer>
       Keycraft • Links oficiais do Modrinth
@@ -294,14 +377,23 @@
     const searchInput = document.getElementById("searchInput");
     const modCards = document.querySelectorAll(".mod-card");
     const emptyMsg = document.getElementById("emptyMsg");
+    const modCount = document.getElementById("modCount");
+    const pills = document.querySelectorAll(".pill");
 
-    searchInput.addEventListener("input", () => {
+    let currentFilter = "all";
+
+    function filterMods() {
       const term = searchInput.value.toLowerCase().trim();
       let visibleCount = 0;
 
       modCards.forEach((card) => {
         const text = card.innerText.toLowerCase();
-        if (text.includes(term)) {
+        const category = card.getAttribute("data-category");
+        
+        const matchesSearch = text.includes(term);
+        const matchesCategory = currentFilter === "all" || category === currentFilter;
+
+        if (matchesSearch && matchesCategory) {
           card.style.display = "flex";
           visibleCount++;
         } else {
@@ -310,6 +402,18 @@
       });
 
       emptyMsg.style.display = visibleCount === 0 ? "block" : "none";
+      modCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'mod' : 'mods'}`;
+    }
+
+    searchInput.addEventListener("input", filterMods);
+
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentFilter = pill.getAttribute("data-filter");
+        filterMods();
+      });
     });
   </script>
 </body>
