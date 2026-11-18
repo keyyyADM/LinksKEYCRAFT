@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keycraft - Mods & Links</title>
+  <title>Keycraft • Mods & Links</title>
   <style>
     :root {
-      --bg: #0b0d10;
-      --card: #13161c;
-      --card-hover: #1b1f28;
-      --border: #222732;
+      --bg: #070907;
+      --card: #101410;
+      --card-hover: #161d16;
+      --border: #1e291e;
       --text: #f3f4f6;
       --muted: #9ca3af;
-      --accent: #22c55e;
-      --pix: #a855f7;
+      --green: #16d916;       /* Verde vibrante da sua skin */
+      --green-dark: #0fa30f;
+      --green-glow: rgba(22, 217, 22, 0.25);
     }
 
     * {
@@ -25,10 +26,11 @@
 
     body {
       background-color: var(--bg);
+      background-image: radial-gradient(circle at 50% 0%, rgba(22, 217, 22, 0.12) 0%, transparent 55%);
       color: var(--text);
       display: flex;
       justify-content: center;
-      padding: 32px 16px 48px;
+      padding: 36px 16px 48px;
       min-height: 100vh;
     }
 
@@ -43,13 +45,13 @@
     }
 
     .avatar-container {
-      width: 90px;
-      height: 90px;
+      width: 96px;
+      height: 96px;
       margin: 0 auto 14px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--pix));
-      padding: 3px; /* Borda brilhante estilo gradiente */
-      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25);
+      background: linear-gradient(135deg, var(--green), #064e06);
+      padding: 3px;
+      box-shadow: 0 0 28px var(--green-glow);
     }
 
     .avatar {
@@ -57,19 +59,26 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #181b21;
+      background-color: #111611;
     }
 
     header h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 4px;
       letter-spacing: -0.02em;
+    }
+
+    header .handle {
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     header p {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .actions {
@@ -87,20 +96,24 @@
       text-decoration: none;
       padding: 15px 18px;
       border-radius: 12px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.96rem;
-      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      opacity: 0.95;
     }
 
     .btn-pix {
-      background-color: var(--pix);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+      background-color: var(--green);
+      color: #041204;
+      box-shadow: 0 4px 20px var(--green-glow);
+    }
+
+    .btn-pix:hover {
+      background-color: #1ef01e;
+      box-shadow: 0 6px 24px rgba(22, 217, 22, 0.4);
     }
 
     .btn-video {
@@ -110,7 +123,8 @@
     }
 
     .btn-video:hover {
-      border-color: var(--accent);
+      border-color: var(--green);
+      background-color: var(--card-hover);
     }
 
     .search-box {
@@ -131,8 +145,8 @@
     }
 
     .search-box input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(22, 217, 22, 0.15);
     }
 
     .section-title {
@@ -165,7 +179,7 @@
 
     .mod-card:hover {
       background-color: var(--card-hover);
-      border-color: var(--accent);
+      border-color: var(--green);
       transform: translateX(3px);
     }
 
@@ -182,11 +196,11 @@
 
     .tag {
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       padding: 5px 9px;
       border-radius: 6px;
-      background-color: rgba(34, 197, 94, 0.12);
-      color: var(--accent);
+      background-color: rgba(22, 217, 22, 0.12);
+      color: var(--green);
       white-space: nowrap;
       margin-left: 12px;
     }
@@ -211,16 +225,17 @@
   <div class="container">
     <header>
       <div class="avatar-container">
-        <!-- Puxa a renderização da cabeça da sua skin do Minecraft automaticamente -->
-        <img class="avatar" src="https://visage.surgeplay.com/face/180/Keyyycraft" alt="Skin do Keycraft" onerror="this.src='https://visage.surgeplay.com/face/180/steve'" />
+        <!-- Usa o arquivo avatar.png que você subir no GitHub; se não existir, puxa sua skin -->
+        <img class="avatar" src="./avatar.png" alt="Keycraft" onerror="this.onerror=null; this.src='https://visage.surgeplay.com/bust/256/Keyyycraft';" />
       </div>
-      <h1>Keycraft</h1>
-      <p>Links diretos e seguros do Modrinth dos vídeos</p>
+      <h1>Key</h1>
+      <div class="handle">@Keyyycraft</div>
+      <p>Tudo sobre esses Blocos! Links diretos do Modrinth</p>
     </header>
 
     <div class="actions">
       <a href="https://livepix.gg/keycraft" target="_blank" rel="noopener" class="btn-primary btn-pix">
-        💜 Apoiar o canal / Pedir um mod (LivePix)
+        💚 Apoiar o canal / Pedir um mod (LivePix)
       </a>
 
       <a href="https://youtube.com/@Keyyycraft" target="_blank" rel="noopener" class="btn-primary btn-video">
