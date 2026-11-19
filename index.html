@@ -352,16 +352,55 @@
       backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 13px 16px;
+      padding: 12px 14px;
       text-decoration: none;
       color: var(--text);
       transition: all 0.2s ease;
+      gap: 12px;
     }
 
     .mod-card:hover {
       background: var(--surface-hover);
       border-color: var(--border-hover);
       transform: translateX(3px);
+    }
+
+    .mod-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mod-thumb {
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
+      background: rgba(0, 255, 102, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: var(--green);
+    }
+
+    .mod-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mod-thumb svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.75;
+    }
+
+    .mod-info {
+      min-width: 0;
     }
 
     .mod-info h3 {
@@ -378,6 +417,7 @@
     .mod-info p {
       font-size: 0.78rem;
       color: var(--muted);
+      line-height: 1.35;
     }
 
     .tag {
@@ -388,7 +428,7 @@
       background: var(--green-soft);
       color: var(--green);
       white-space: nowrap;
-      margin-left: 12px;
+      flex-shrink: 0;
     }
 
     /* Cards da Minha Loja (Afiliados) */
@@ -527,7 +567,6 @@
 
     <!-- BOTÕES ESPECÍFICOS PRINCIPAIS -->
     <div class="actions">
-      <!-- Botão Apoio / LivePix -->
       <a href="https://livepix.gg/keycraft" target="_blank" rel="noopener" class="btn btn-highlight">
         <span class="btn-left">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -538,7 +577,6 @@
         <span class="arrow">↗</span>
       </a>
 
-      <!-- Redes Sociais Compactas (YouTube, TikTok, Kwai) -->
       <div class="social-grid">
         <a href="https://youtube.com/@Keyyycraft" target="_blank" rel="noopener" class="btn" title="YouTube">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -601,146 +639,10 @@
 
       <div class="section-header">
         <div class="section-title">Mods em Destaque</div>
-        <div class="mod-count" id="modCount">17 mods</div>
+        <div class="mod-count" id="modCount">18 mods</div>
       </div>
 
-      <div class="mod-list" id="modList">
-        <a href="https://modrinth.com/mod/sodium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>Sodium</h3>
-            <p>Otimização extrema de FPS e renderização</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/sodium-extra" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>Sodium Extra</h3>
-            <p>Opções extras de configuração gráfica para o Sodium</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/lithium" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>Lithium</h3>
-            <p>Melhora física, chunks e desempenho geral</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/immediatelyfast" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>ImmediatelyFast</h3>
-            <p>Otimiza a renderização de entidades, blocos e UI</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/entityculling" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>Entity Culling</h3>
-            <p>Não renderiza entidades escondidas atrás de paredes</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/ferritecore" target="_blank" rel="noopener" class="mod-card" data-category="otimização">
-          <div class="mod-info">
-            <h3>FerriteCore</h3>
-            <p>Reduz drasticamente o consumo de memória RAM</p>
-          </div>
-          <span class="tag">Otimização</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/axiom" target="_blank" rel="noopener" class="mod-card" data-category="construção">
-          <div class="mod-info">
-            <h3>Axiom</h3>
-            <p>Ferramenta de edição e construção estilo editor profissional</p>
-          </div>
-          <span class="tag">Construção</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/effortless-building" target="_blank" rel="noopener" class="mod-card" data-category="construção">
-          <div class="mod-info">
-            <h3>Effortless Building</h3>
-            <p>Construa estruturas gigantes e espelhadas em segundos</p>
-          </div>
-          <span class="tag">Construção</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/macaws-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
-          <div class="mod-info">
-            <h3>Macaw's Furniture</h3>
-            <p>Cadeiras, mesas, prateleiras e decorações detalhadas</p>
-          </div>
-          <span class="tag">Construção</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/a-little-furniture" target="_blank" rel="noopener" class="mod-card" data-category="construção">
-          <div class="mod-info">
-            <h3>A Little Furniture</h3>
-            <p>Mais opções de móveis aconchegantes para suas bases</p>
-          </div>
-          <span class="tag">Construção</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/iris" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
-          <div class="mod-info">
-            <h3>Iris Shaders</h3>
-            <p>Suporte a shaders de altíssimo desempenho integrado ao Sodium</p>
-          </div>
-          <span class="tag">Visuais</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/fresh-animations" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
-          <div class="mod-info">
-            <h3>Fresh Animations</h3>
-            <p>Dá vida aos mobs com expressões faciais e movimentos fluidos</p>
-          </div>
-          <span class="tag">Visuais</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/emotecraft" target="_blank" rel="noopener" class="mod-card" data-category="visuais">
-          <div class="mod-info">
-            <h3>Emotecraft</h3>
-            <p>Expresse-se no multiplayer com emotes e animações personalizadas</p>
-          </div>
-          <span class="tag">Visuais</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
-          <div class="mod-info">
-            <h3>Xaero's Minimap</h3>
-            <p>Minimapa limpo e customizável com waypoints e radar</p>
-          </div>
-          <span class="tag">Utilidade</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/flashback" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
-          <div class="mod-info">
-            <h3>Flashback</h3>
-            <p>Grave e reproduza suas melhores sessões de construção</p>
-          </div>
-          <span class="tag">Utilidade</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/zoomify" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
-          <div class="mod-info">
-            <h3>Zoomify</h3>
-            <p>Zoom óptico suave configurável no jogo</p>
-          </div>
-          <span class="tag">Utilidade</span>
-        </a>
-
-        <a href="https://modrinth.com/mod/modmenu" target="_blank" rel="noopener" class="mod-card" data-category="utilidade">
-          <div class="mod-info">
-            <h3>Mod Menu</h3>
-            <p>Interface gráfica limpa para gerenciar e configurar seus mods</p>
-          </div>
-          <span class="tag">Utilidade</span>
-        </a>
-      </div>
+      <div class="mod-list" id="modList"></div>
 
       <div class="empty-msg" id="emptyMsg">Nenhum mod encontrado.</div>
     </div>
@@ -849,6 +751,173 @@
   </div>
 
   <script>
+    // ============================================================
+    // LISTA DE MODS (Adicione novos mods aqui de forma rápida)
+    // Categorias: "otimização" | "construção" | "visuais" | "utilidade"
+    // ============================================================
+    const MODS_DATA = [
+      {
+        nome: "Weeping Creeper",
+        desc: "Creepers sombrios que se movem apenas quando você não está olhando",
+        cat: "visuais",
+        url: "https://modrinth.com/mod/weeping-creeper",
+        img: "https://media.forgecdn.net/avatars/thumbnails/1817/150/64/64/639148368305563960.png"
+      },
+      {
+        nome: "A Little Furniture",
+        desc: "Mais opções de móveis aconchegantes e funcionais para suas bases",
+        cat: "construção",
+        url: "https://modrinth.com/mod/a-little-furniture",
+        img: "https://cdn.modrinth.com/data/aYdScSxc/images/25adbaff2d83ffce88a98f61b6ca36af98b347f8.png"
+      },
+      {
+        nome: "Sodium",
+        desc: "Otimização extrema de FPS e renderização",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/sodium",
+        img: ""
+      },
+      {
+        nome: "Sodium Extra",
+        desc: "Opções extras de configuração gráfica para o Sodium",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/sodium-extra",
+        img: ""
+      },
+      {
+        nome: "Lithium",
+        desc: "Melhora física, chunks e desempenho geral",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/lithium",
+        img: ""
+      },
+      {
+        nome: "ImmediatelyFast",
+        desc: "Otimiza a renderização de entidades, blocos e UI",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/immediatelyfast",
+        img: ""
+      },
+      {
+        nome: "Entity Culling",
+        desc: "Não renderiza entidades escondidas atrás de paredes",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/entityculling",
+        img: ""
+      },
+      {
+        nome: "FerriteCore",
+        desc: "Reduz drasticamente o consumo de memória RAM",
+        cat: "otimização",
+        url: "https://modrinth.com/mod/ferritecore",
+        img: ""
+      },
+      {
+        nome: "Axiom",
+        desc: "Ferramenta de edição e construção estilo editor profissional",
+        cat: "construção",
+        url: "https://modrinth.com/mod/axiom",
+        img: ""
+      },
+      {
+        nome: "Effortless Building",
+        desc: "Construa estruturas gigantes e espelhadas em segundos",
+        cat: "construção",
+        url: "https://modrinth.com/mod/effortless-building",
+        img: ""
+      },
+      {
+        nome: "Macaw's Furniture",
+        desc: "Cadeiras, mesas, prateleiras e decorações detalhadas",
+        cat: "construção",
+        url: "https://modrinth.com/mod/macaws-furniture",
+        img: ""
+      },
+      {
+        nome: "Iris Shaders",
+        desc: "Suporte a shaders de altíssimo desempenho integrado ao Sodium",
+        cat: "visuais",
+        url: "https://modrinth.com/mod/iris",
+        img: ""
+      },
+      {
+        nome: "Fresh Animations",
+        desc: "Dá vida aos mobs com expressões faciais e movimentos fluidos",
+        cat: "visuais",
+        url: "https://modrinth.com/mod/fresh-animations",
+        img: ""
+      },
+      {
+        nome: "Emotecraft",
+        desc: "Expresse-se no multiplayer com emotes e animações personalizadas",
+        cat: "visuais",
+        url: "https://modrinth.com/mod/emotecraft",
+        img: ""
+      },
+      {
+        nome: "Xaero's Minimap",
+        desc: "Minimapa limpo e customizável com waypoints e radar",
+        cat: "utilidade",
+        url: "https://modrinth.com/mod/xaeros-minimap",
+        img: ""
+      },
+      {
+        nome: "Flashback",
+        desc: "Grave e reproduza suas melhores sessões de construção",
+        cat: "utilidade",
+        url: "https://modrinth.com/mod/flashback",
+        img: ""
+      },
+      {
+        nome: "Zoomify",
+        desc: "Zoom óptico suave configurável no jogo",
+        cat: "utilidade",
+        url: "https://modrinth.com/mod/zoomify",
+        img: ""
+      },
+      {
+        nome: "Mod Menu",
+        desc: "Interface gráfica limpa para gerenciar e configurar seus mods",
+        cat: "utilidade",
+        url: "https://modrinth.com/mod/modmenu",
+        img: ""
+      }
+    ];
+
+    const TAG_LABELS = {
+      "otimização": "Otimização",
+      "construção": "Construção",
+      "visuais": "Visuais",
+      "utilidade": "Utilidade"
+    };
+
+    const FALLBACK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`;
+
+    const modListEl = document.getElementById("modList");
+
+    function renderMods() {
+      modListEl.innerHTML = MODS_DATA.map(mod => {
+        const thumbContent = mod.img
+          ? `<img src="${mod.img}" alt="${mod.nome}" loading="lazy" onerror="this.parentElement.innerHTML='${FALLBACK_ICON.replace(/"/g, '&quot;')}'">`
+          : FALLBACK_ICON;
+
+        return `
+          <a href="${mod.url}" target="_blank" rel="noopener" class="mod-card" data-category="${mod.cat}">
+            <div class="mod-left">
+              <div class="mod-thumb">${thumbContent}</div>
+              <div class="mod-info">
+                <h3>${mod.nome}</h3>
+                <p>${mod.desc}</p>
+              </div>
+            </div>
+            <span class="tag">${TAG_LABELS[mod.cat] || mod.cat}</span>
+          </a>
+        `;
+      }).join("");
+    }
+
+    renderMods();
+
     // --- 1. Alternância entre Abas ---
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabPanels = document.querySelectorAll(".tab-panel");
@@ -864,7 +933,6 @@
 
     // --- 2. Filtro e Busca de Mods ---
     const searchInput = document.getElementById("searchInput");
-    const modCards = document.querySelectorAll(".mod-card");
     const emptyMsg = document.getElementById("emptyMsg");
     const modCount = document.getElementById("modCount");
     const pills = document.querySelectorAll("#filterPills .pill");
@@ -872,6 +940,7 @@
 
     function filterMods() {
       const term = searchInput.value.toLowerCase().trim();
+      const modCards = document.querySelectorAll(".mod-card");
       let visibleCount = 0;
 
       modCards.forEach((card) => {
@@ -901,6 +970,8 @@
         filterMods();
       });
     });
+
+    filterMods();
 
     // --- 3. Filtro e Busca da Lojinha Minecraft ---
     const shopSearchInput = document.getElementById("shopSearchInput");
@@ -1006,22 +1077,17 @@
       smoothX += (mouse.targetX - smoothX) * 0.05;
       smoothY += (mouse.targetY - smoothY) * 0.05;
 
+      // Silhueta de blocos no horizonte
       terrainBlocks.forEach(b => {
         const x = b.col * blockSize + smoothX * 0.4;
         const y = height - b.h1 * blockSize + smoothY * 0.3;
-        ctx.fillStyle = "rgba(0, 255, 102, 0.03)";
-        ctx.fillRect(x, y, blockSize - 1, b.h1 * blockSize + 40);
+        ctx.fillStyle = "rgba(0, 255, 102, 0.035)";
+        ctx.fillRect(x, y, blockSize - 2, b.h1 * blockSize + 40);
+        ctx.fillStyle = "rgba(0, 255, 102, 0.08)";
+        ctx.fillRect(x, y, blockSize - 2, 4);
       });
 
-      terrainBlocks.forEach(b => {
-        const x = b.col * blockSize + smoothX;
-        const y = height - b.h2 * blockSize + smoothY * 0.6;
-        ctx.fillStyle = "rgba(10, 32, 16, 0.65)";
-        ctx.fillRect(x, y, blockSize - 1, b.h2 * blockSize + 40);
-        ctx.fillStyle = "rgba(0, 255, 102, 0.14)";
-        ctx.fillRect(x, y, blockSize - 1, 4);
-      });
-
+      // Partículas de XP flutuantes
       particles.forEach(p => {
         p.x += p.speedX;
         p.y += p.speedY;
@@ -1034,18 +1100,9 @@
         if (p.x < -10) p.x = width + 10;
         if (p.x > width + 10) p.x = -10;
 
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist < 110) {
-          const force = (110 - dist) / 110;
-          p.x += (dx / dist) * force * 2.2;
-          p.y += (dy / dist) * force * 2.2;
-        }
-
-        const currentAlpha = p.alpha + Math.sin(p.pulse) * 0.12;
-        ctx.fillStyle = `rgba(0, 255, 102, ${Math.max(0.05, currentAlpha)})`;
-        ctx.fillRect(Math.round(p.x), Math.round(p.y), p.size, p.size);
+        const glow = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+        ctx.fillStyle = `rgba(0, 255, 102, ${glow})`;
+        ctx.fillRect(p.x + smoothX * 0.8, p.y + smoothY * 0.8, p.size, p.size);
       });
 
       requestAnimationFrame(animate);
